@@ -18,11 +18,17 @@ app.use(limiter); // Apply the rate limiting middleware to all requests.
 
 app.use(
   '/flightsService',
-  createProxyMiddleware({ target: ServerConfig.FLIGHT_SERVICE, changeOrigin: true })
+  createProxyMiddleware({
+    target: ServerConfig.FLIGHT_SERVICE,
+    changeOrigin: true
+  })
 );
 app.use(
   '/bookingService',
-  createProxyMiddleware({ target: ServerConfig.BOOKING_SERVICE, changeOrigin: true })
+  createProxyMiddleware({
+    target: ServerConfig.BOOKING_SERVICE,
+    changeOrigin: true
+  })
 );
 app.use('/api', apiRoutes);
 
